@@ -11,6 +11,5 @@
     "useDefineForClassFields": false,
     "outDir": "./dist"
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.stories.ts"]
+  "include": ["src/**/*.ts"]
 }
