@@ -36,9 +36,7 @@ export class Modal extends LitElement {
             <slot name="title"></slot>
             <button @click=${() => this.close()}>X</button>
           </header>
-          <main>
-            <slot name="body"></slot>
-          </main>
+          <slot></slot>
         </div>
       </dialog>
     `;

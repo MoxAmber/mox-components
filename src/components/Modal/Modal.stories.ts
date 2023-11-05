@@ -17,7 +17,8 @@ export const Primary: StoryObj = {
     </button>
     <mox-modal>
       <h1 slot="title">Modal title</h1>
-      <p slot="body">And this is some content</p>
+      <p>This is some content</p>
+      <div style="background: red;"><h2>And so is this</h2></div>
     </mox-modal>
   `,
 };
