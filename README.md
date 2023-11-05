@@ -14,8 +14,11 @@ It's also a fun way to learn more about Web Components 😁
 This project is written to support ES2021, and will include polyfills for any components that require newer functionality.
 
 ## Components
+All components are documented in Storybook. It is currently not hosted anywhere, but can be run locally using  
+`npm run storybook`
+
 ### mox-modal
-A basic modal built on <dialog>, with click-outside behaviour and a default header with a close button.
+A basic modal built on `<dialog>`, with click-outside behaviour and a default header with a close button.
 
 Usage:
 ```html
@@ -26,8 +29,8 @@ Usage:
 ```
 
 ## Planned Components
-**VisuallyHidden** - Hide text visually while still leaving it visible in the accessibility tree
-**MediaObject** - 2 column box with an image and some amount of content (eg. a Facebook status)
-**Accordion** - Stack of collapsible panels that contain large amounts of content (eg. FAQs)
-**Dropdown** - A dropdown menu
-**Tabs** - A set of containers controlled by tabs
+**VisuallyHidden** - Hide text visually while still leaving it visible in the accessibility tree  
+**MediaObject** - 2 column box with an image and some amount of content (eg. a Facebook status)  
+**Accordion** - Stack of collapsible panels that contain large amounts of content (eg. FAQs)  
+**Dropdown** - A dropdown menu  
+**Tabs** - A set of containers controlled by tabs  
