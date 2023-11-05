@@ -7,6 +7,7 @@
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"src/**/*.ts\"",
     "storybook": "storybook dev -p 6006",
