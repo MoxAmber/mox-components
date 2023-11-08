@@ -1,9 +1,12 @@
 /* eslint-env node */
 module.exports = {
+  env: {
+    es2021: true,
+    browser: true,
+    jest: true,
+  },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended-type-checked",
-    "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:lit/recommended",
     "plugin:wc/best-practice",
     "plugin:storybook/recommended",
@@ -12,9 +15,13 @@ module.exports = {
   overrides: [
     {
       files: ["*.ts"],
+      extends: [
+        "plugin:@typescript-eslint/recommended-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked",
+      ],
       parser: "@typescript-eslint/parser",
       parserOptions: {
-        project: "tsconfig.eslint.json",
+        project: true,
         tsconfigRootDir: __dirname,
       },
     },

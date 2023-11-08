@@ -9,8 +9,10 @@
     "declarationMap": true,
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": "./src",
+    "types": ["jest"]
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.stories.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
