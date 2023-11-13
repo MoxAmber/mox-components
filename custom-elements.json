@@ -68,21 +68,33 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/Modal/Modal.ts",
+      "path": "src/components/Modal/index.ts",
       "declarations": [
         {
           "kind": "class",
           "description": "",
           "name": "Modal",
-          "members": [
+          "cssParts": [
             {
-              "kind": "field",
-              "name": "_dialogEl",
-              "type": {
-                "text": "HTMLDialogElement"
-              },
-              "privacy": "private"
+              "description": "the containing dialog element",
+              "name": "dialog"
             },
+            {
+              "description": "the close button",
+              "name": "close"
+            }
+          ],
+          "slots": [
+            {
+              "description": "A title to display in the Modal header",
+              "name": "title"
+            },
+            {
+              "description": "Modal body content",
+              "name": ""
+            }
+          ],
+          "members": [
             {
               "kind": "method",
               "name": "showModal"
@@ -119,6 +131,7 @@
             "package": "lit"
           },
           "tagName": "mox-modal",
+          "summary": "An accessible modal dialog component with click-outside behaviour",
           "customElement": true
         }
       ],
@@ -128,7 +141,7 @@
           "name": "Modal",
           "declaration": {
             "name": "Modal",
-            "module": "src/components/Modal/Modal.ts"
+            "module": "src/components/Modal/index.ts"
           }
         },
         {
@@ -136,22 +149,72 @@
           "name": "mox-modal",
           "declaration": {
             "name": "Modal",
-            "module": "src/components/Modal/Modal.ts"
+            "module": "src/components/Modal/index.ts"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/Modal/index.ts",
-      "declarations": [],
+      "path": "src/components/VisuallyHidden/index.ts",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "VisuallyHidden",
+          "slots": [
+            {
+              "description": "Any content intended to be hidden visually",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "focusable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "focusable"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "focusable",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "focusable",
+              "description": "Should contents be focusable?",
+              "attribute": "focusable"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "mox-visually-hidden",
+          "summary": "Visually hide content, while still rendering it in the accessibility tree",
+          "customElement": true
+        }
+      ],
       "exports": [
         {
           "kind": "js",
-          "name": "*",
+          "name": "VisuallyHidden",
           "declaration": {
-            "name": "*",
-            "package": "\"./Modal\""
+            "name": "VisuallyHidden",
+            "module": "src/components/VisuallyHidden/index.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "mox-visually-hidden",
+          "declaration": {
+            "name": "VisuallyHidden",
+            "module": "src/components/VisuallyHidden/index.ts"
           }
         }
       ]
