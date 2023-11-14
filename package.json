@@ -13,14 +13,14 @@
     "custom-elements.json"
   ],
   "scripts": {
-    "prepare": "run-p -r build:*",
+    "prepare": "run-p -r build:* && husky install",
     "start": "run-p -r 'build:* -- --watch' storybook",
     "storybook": "storybook dev -p 6006",
-    "build:tsc": "tsc -b tsconfig.build.json --watch",
-    "build:manifest": "cem analyze",
+    "build:tsc": "tsc -b tsconfig.build.json",
+    "build:manifest": "cem analyze --config .config/custom-elements-manifest.config.mjs",
     "test": "run-p -r \"storybook -- --no-open\" \"test:* -- {@}\" --",
     "test:storybook": "wait-on http://localhost:6006/ && test-storybook --browsers chromium firefox webkit",
-    "lint": "eslint \"src/**/*.ts\""
+    "lint": "eslint --config .config/eslint.config.cjs \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,8 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.8.1",
+    "@commitlint/cli": "^18.4.1",
+    "@commitlint/config-conventional": "^18.4.0",
     "@custom-elements-manifest/analyzer": "^0.9.0",
     "@eslint/eslintrc": "^2.1.3",
     "@eslint/js": "^8.53.0",
@@ -62,6 +64,8 @@
     "eslint-plugin-lit": "^1.10.1",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-wc": "^2.0.4",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
     "react": "^18.2.0",
