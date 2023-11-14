@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+
+    "pretty": true,
+    "target": "es2021",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+
+    "declaration": true,
+    "declarationMap": true,
+    "noEmitOnError": true,
+    "emitDeclarationOnly": true,
+
+    "strict": true,
+    "experimentalDecorators": true,
+    "verbatimModuleSyntax": true,
+
+    "types": ["jest"]
+  }
+}

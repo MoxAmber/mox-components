@@ -11,7 +11,7 @@ module.exports = {
     "plugin:wc/best-practice",
     "plugin:storybook/recommended",
   ],
-  ignorePatterns: ["dist/*"],
+  ignorePatterns: ["lib/*"],
   overrides: [
     {
       files: ["*.ts"],

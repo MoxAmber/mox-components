@@ -1,8 +1,8 @@
 import { userEvent, within } from "@storybook/testing-library";
 import type { Meta, StoryObj } from "@storybook/web-components";
 import { html } from "lit";
-import { withinShadowRoot } from "test-utils/withinShadowRoot";
-import ".";
+import { withinShadowRoot } from "../../test-utils/withinShadowRoot.js";
+import "./index.js";
 
 const meta: Meta = {
   component: "mox-modal",

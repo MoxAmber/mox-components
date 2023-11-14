@@ -52,3 +52,9 @@ export class VisuallyHidden extends LitElement {
     return html`<slot class=${classMap(classes)}></slot>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "mox-visually-hidden": VisuallyHidden;
+  }
+}

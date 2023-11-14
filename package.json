@@ -3,17 +3,24 @@
   "version": "1.0.0",
   "description": "simple accessible web components",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    "./components/*": "./lib/components/*/index.js",
+    "./test-utils/*": "./lib/test-utils/*"
+  },
+  "customElements": "custom-elements.json",
+  "files": [
+    "lib/",
+    "custom-elements.json"
+  ],
   "scripts": {
-    "prepare": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"src/**/*.ts\"",
-    "storybook": "npm run manifest:watch & storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "manifest:generate": "cem analyze --litelement --globs 'src/**/*.ts' --exclude='src/**/*.stories.ts'",
-    "manifest:watch": "npm run manifest:generate -- --watch"
+    "prepare": "run-p -r build:*",
+    "start": "run-p -r 'build:* -- --watch' storybook",
+    "storybook": "storybook dev -p 6006",
+    "build:tsc": "tsc -b tsconfig.build.json --watch",
+    "build:manifest": "cem analyze",
+    "test": "run-p -r \"storybook -- --no-open\" test:*",
+    "test:storybook": "wait-on http://localhost:6006/ && test-storybook",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -37,16 +44,16 @@
     "@custom-elements-manifest/analyzer": "^0.9.0",
     "@eslint/eslintrc": "^2.1.3",
     "@eslint/js": "^8.53.0",
-    "@storybook/addon-a11y": "^7.5.2",
-    "@storybook/addon-essentials": "^7.5.2",
-    "@storybook/addon-interactions": "^7.5.2",
-    "@storybook/addon-links": "^7.5.2",
-    "@storybook/blocks": "^7.5.2",
+    "@storybook/addon-a11y": "^7.5.3",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/blocks": "^7.5.3",
     "@storybook/jest": "^0.2.3",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/test-runner": "^0.14.0",
     "@storybook/testing-library": "^0.2.2",
-    "@storybook/web-components": "^7.5.2",
-    "@storybook/web-components-vite": "^7.5.2",
+    "@storybook/web-components": "^7.5.3",
+    "@storybook/web-components-vite": "^7.5.3",
     "@types/jest": "^29.5.7",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
@@ -55,12 +62,14 @@
     "eslint-plugin-lit": "^1.10.1",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-wc": "^2.0.4",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.5.2",
+    "storybook": "^7.5.3",
     "typescript": "^5.2.2",
     "vite-plugin-cem": "^0.5.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "vite-tsconfig-paths": "^4.2.1",
+    "wait-on": "^7.1.0"
   }
 }
