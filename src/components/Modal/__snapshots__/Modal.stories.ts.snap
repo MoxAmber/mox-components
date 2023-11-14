@@ -1,43 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/Modal ClickOutside play-test 1`] = `
-<div id="root-inner">
-  <button type="button">
-    Open Modal
-  </button>
-  <mox-modal>
-    <h1 slot="title">
-      Modal title
-    </h1>
-    <p>
-      This is some content
-    </p>
-    <div style="background: red;">
-      <h2>
-        And so is this
-      </h2>
-    </div>
-  </mox-modal>
-</div>
+exports[`components/Modal ClickOutside play-test: shadow DOM 1`] = `
+<dialog part="dialog">
+  <header>
+    <slot name="title">
+    </slot>
+    <button type="button"
+            part="close"
+            aria-label="Close"
+            autofocus
+    >
+      X
+    </button>
+  </header>
+  <slot>
+  </slot>
+</dialog>
 `;
 
-exports[`components/Modal Main play-test 1`] = `
-<div id="root-inner">
-  <button type="button">
-    Open Modal
-  </button>
-  <mox-modal>
-    <h1 slot="title">
-      Modal title
-    </h1>
-    <p>
-      This is some content
-    </p>
-    <div style="background: red;">
-      <h2>
-        And so is this
-      </h2>
-    </div>
-  </mox-modal>
-</div>
+exports[`components/Modal Main play-test: shadow DOM 1`] = `
+<dialog part="dialog"
+        open
+>
+  <header>
+    <slot name="title">
+    </slot>
+    <button type="button"
+            part="close"
+            aria-label="Close"
+            autofocus
+    >
+      X
+    </button>
+  </header>
+  <slot>
+  </slot>
+</dialog>
 `;

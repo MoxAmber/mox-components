@@ -1,23 +1,22 @@
-import type { TestRunnerConfig } from "@storybook/test-runner";
-import { checkA11y, injectAxe } from "axe-playwright";
+import { AxeBuilder } from "@axe-core/playwright";
+import { getStoryContext, type TestRunnerConfig } from "@storybook/test-runner";
 
-const a11yConfig: TestRunnerConfig = {
-  async preRender(page) {
-    await injectAxe(page);
-  },
-  async postRender(page) {
-    // Accessibility testing with axe-playwright
-    await checkA11y(page, "#storybook-root", {
-      detailedReport: true,
-      detailedReportOptions: {
-        html: true,
-      },
-    });
+const testConfig: TestRunnerConfig = {
+  async postRender(page, ctx) {
+    const storyContext = await getStoryContext(page, ctx);
+    const tagName = storyContext.component as string;
+
+    // Accessibility testing with axe-core
+    const results = await new AxeBuilder({ page }).include(tagName).analyze();
+    expect(results.violations).toEqual([]);
+
     // Snapshot testing
-    const elementHandler = await page.$("#storybook-root");
-    const innerHTML = await elementHandler?.innerHTML();
-    expect(innerHTML).toMatchSnapshot();
+    const customElement = page.locator(tagName);
+    const shadowRootContent = await customElement?.evaluate(
+      (node) => node.shadowRoot?.innerHTML,
+    );
+    expect(shadowRootContent).toMatchSnapshot("shadow DOM");
   },
 };
 
-export default a11yConfig;
+export default testConfig;
