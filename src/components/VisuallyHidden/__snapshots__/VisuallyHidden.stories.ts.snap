@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/VisuallyHidden Focusable smoke-test: shadow DOM 1`] = `
+<slot class=" focusable ">
+</slot>
+`;
+
+exports[`components/VisuallyHidden Primary smoke-test: shadow DOM 1`] = `
+<slot class="  ">
+</slot>
+`;
