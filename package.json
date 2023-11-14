@@ -17,10 +17,10 @@
     "start": "run-p -r 'build:* -- --watch' storybook",
     "storybook": "storybook dev -p 6006",
     "build:tsc": "tsc -b tsconfig.build.json",
-    "build:manifest": "cem analyze --config .config/custom-elements-manifest.config.mjs",
+    "build:manifest": "cem analyze",
     "test": "run-p -r \"storybook -- --no-open\" \"test:* -- {@}\" --",
     "test:storybook": "wait-on http://localhost:6006/ && test-storybook --browsers chromium firefox webkit",
-    "lint": "eslint --config .config/eslint.config.cjs \"src/**/*.ts\""
+    "lint": "eslint \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
