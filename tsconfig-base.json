@@ -14,6 +14,7 @@
 
     "strict": true,
     "experimentalDecorators": true,
+    "useDefineForClassFields": false,
     "verbatimModuleSyntax": true,
 
     "types": ["jest"]

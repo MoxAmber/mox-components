@@ -24,6 +24,10 @@ module.exports = {
         project: true,
         tsconfigRootDir: __dirname,
       },
+      rules: {
+        // Lit automatically binds `this` in event handlers
+        "@typescript-eslint/unbound-method": "off",
+      },
     },
   ],
   root: true,
