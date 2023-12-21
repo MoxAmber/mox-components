@@ -2,19 +2,22 @@
 
 exports[`components/Modal ClickOutside play-test: shadow DOM 1`] = `
 <dialog part="dialog">
-  <header>
-    <slot name="title">
+  <div class="container"
+       part="container"
+  >
+    <header>
+      <slot name="title">
+      </slot>
+      <button type="button"
+              part="close"
+              aria-label="Close"
+      >
+        X
+      </button>
+    </header>
+    <slot>
     </slot>
-    <button type="button"
-            part="close"
-            aria-label="Close"
-            autofocus
-    >
-      X
-    </button>
-  </header>
-  <slot>
-  </slot>
+  </div>
 </dialog>
 `;
 
@@ -22,18 +25,21 @@ exports[`components/Modal Main play-test: shadow DOM 1`] = `
 <dialog part="dialog"
         open
 >
-  <header>
-    <slot name="title">
+  <div class="container"
+       part="container"
+  >
+    <header>
+      <slot name="title">
+      </slot>
+      <button type="button"
+              part="close"
+              aria-label="Close"
+      >
+        X
+      </button>
+    </header>
+    <slot>
     </slot>
-    <button type="button"
-            part="close"
-            aria-label="Close"
-            autofocus
-    >
-      X
-    </button>
-  </header>
-  <slot>
-  </slot>
+  </div>
 </dialog>
 `;
