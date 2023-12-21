@@ -8,16 +8,20 @@
       "declarations": [
         {
           "kind": "class",
-          "description": "",
+          "description": "An accessible modal dialog component with click-outside behaviour",
           "name": "Modal",
           "cssParts": [
             {
-              "description": "the containing dialog element",
+              "description": "The base dialog element",
               "name": "dialog"
             },
             {
-              "description": "the close button",
+              "description": "The close button",
               "name": "close"
+            },
+            {
+              "description": "The inner container div",
+              "name": "container"
             }
           ],
           "slots": [
@@ -32,8 +36,27 @@
           ],
           "members": [
             {
+              "kind": "field",
+              "name": "open",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "description": "Whether the modal is open and available for interaction"
+            },
+            {
+              "kind": "field",
+              "name": "returnValue",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "description": "The return value of the modal, either from Modal.close(returnValue) or\nsubmitting <form method='dialog'>"
+            },
+            {
               "kind": "method",
-              "name": "showModal"
+              "name": "showModal",
+              "description": "Show the modal. Everything outside the modal is inert"
             },
             {
               "kind": "method",
@@ -44,22 +67,20 @@
                   "optional": true,
                   "type": {
                     "text": "string"
-                  }
+                  },
+                  "description": "The return value to set"
                 }
-              ]
-            },
+              ],
+              "description": "Close the modal, optionally setting the returnValue"
+            }
+          ],
+          "events": [
             {
-              "kind": "method",
-              "name": "_clickOutside",
-              "privacy": "private",
-              "parameters": [
-                {
-                  "name": "e",
-                  "type": {
-                    "text": "MouseEvent"
-                  }
-                }
-              ]
+              "name": "close",
+              "type": {
+                "text": "Event"
+              },
+              "description": "Fires when the modal is closed"
             }
           ],
           "superclass": {
@@ -67,7 +88,6 @@
             "package": "lit"
           },
           "tagName": "mox-modal",
-          "summary": "An accessible modal dialog component with click-outside behaviour",
           "customElement": true
         }
       ],
