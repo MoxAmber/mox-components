@@ -27,7 +27,7 @@ jobs:
       - name: Build Storybook
         run: npm run test:build
       - name: Run Storybook tests
-        run: npx run-p test:server test:storybook
+        run: npx run-p -r test:server test:storybook
 
   dependency-review:
     runs-on: ubuntu-latest
