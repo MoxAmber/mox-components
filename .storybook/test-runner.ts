@@ -2,7 +2,7 @@ import { AxeBuilder } from "@axe-core/playwright";
 import { getStoryContext, type TestRunnerConfig } from "@storybook/test-runner";
 
 const testConfig: TestRunnerConfig = {
-  async postRender(page, ctx) {
+  async postVisit(page, ctx) {
     const storyContext = await getStoryContext(page, ctx);
     const tagName = storyContext.component as string;
 
