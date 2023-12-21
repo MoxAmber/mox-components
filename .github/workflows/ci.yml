@@ -45,6 +45,7 @@ jobs:
         run: npm run lint:prettier
 
   dependency-review:
+    if: ${{ github.ref_name != 'main' }}
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout Repository"
