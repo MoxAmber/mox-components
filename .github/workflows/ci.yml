@@ -25,6 +25,8 @@ jobs:
         run: npm run test:build
       - name: Run Storybook tests
         run: npx run-p -r test:server "test:storybook -- --ci"
+        env:
+          HOME: /root
 
   lint:
     runs-on: ubuntu-latest
