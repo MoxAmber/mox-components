@@ -7,23 +7,23 @@ on:
     branches: ["main"]
 
 jobs:
-  test-storybook:
+  test-lint:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/workflows/install.yml
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 21
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
         run: npm run test:build
       - name: Run Storybook tests
         run: npx run-p test:server test:storybook
-
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: ./.github/workflows/install.yml
       - name: ESLint
         run: npm run lint:eslint
       - name: Prettier
