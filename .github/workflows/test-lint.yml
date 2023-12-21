@@ -21,7 +21,7 @@ jobs:
       - name: ESLint
         run: npm run lint:eslint
       - name: Prettier
-        run: npx run lint:prettier
+        run: npm run lint:prettier
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Build Storybook
